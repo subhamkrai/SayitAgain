@@ -7,6 +7,8 @@ import json
 from os import system
 import wikipedia as wiki
 from time import sleep
+import webbrowser as wb
+
 
 BOLD = "\033[1m"   #use to bold the text
 END = "\033[0m"    #use to close the bold text
@@ -32,7 +34,14 @@ try:
 				json_data = (response.read())
 	    			say =  json.loads(json_data)
 				speech = say['result']['fulfillment']['speech']
-	    			print color(BOLD+"                               "+speech+END+"\n","green")      	
+				search = speech.split(":")
+				if search[0] == "Google" :
+					wb.open_new_tab("https://www.google.com/search?q="+search[1]+"")
+				elif search[0] == "Wiki" :
+					wiki_say = wiki.summary(search[1])
+					print color(BOLD+"                               "+wiki_say+END+"\n","green")
+				else :
+					print color(BOLD+"                               "+speech+END+"\n","green")
 				sleep(3)
 				
 			except sr.UnknownValueError:
