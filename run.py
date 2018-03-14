@@ -36,7 +36,7 @@ try:
 				sleep(3)
 				
 			except sr.UnknownValueError:
-				print color("Why you stop talking to me?","blue")
+				print color("Why you stopped talking to me?","blue")
 
 except KeyboardInterrupt:
 	print color(BOLD+" Bye!"+END, "cyan")
