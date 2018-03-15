@@ -1,5 +1,8 @@
 # SayitAgain
-Answer your simple queries. It uses your Apiai(now known as Dialogflow) account where it will search your query in intents and then repond according to it.
+It is virtual client which can talk to you and can help in searching something on web.
+It processes Natural Language using Dialogflow(API.AI) ML intents and entities.
+It can provide you the summary of any topic.
+
 ## Required Modules
 - pyaudio
 - speech_recognition
