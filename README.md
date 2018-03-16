@@ -1,5 +1,5 @@
 # SayitAgain
-It is virtual client which can talk to you and can help in searching something on web.
+It is virtual assistant which can talk to you and can help in searching something on web.
 
 It processes Natural Language using Dialogflow(API.AI) ML intents and entities.
 
