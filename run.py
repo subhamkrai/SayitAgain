@@ -7,16 +7,17 @@ import json
 from os import system
 import wikipedia as wiki
 from time import sleep
-import webbrowser as wb
-
+#import webbrowser as wb
+from google_search import G_Search
+from youtube_search import Y_Search
 
 BOLD = "\033[1m"   #use to bold the text
 END = "\033[0m"    #use to close the bold text
 CLIENT_ACCESS_TOKEN = "2245d4ab7c99466e806c8986a18234c4"
 ai = apiai.ApiAI(CLIENT_ACCESS_TOKEN)
 
-google_search = "https://www.google.com/search?q="
-youtube_search = "https://www.youtube.com/results?search_query="
+#google_search = "https://www.google.com/search?q="
+#youtube_search = "https://www.youtube.com/results?search_query="
 google_drive = "https://drive.google.com"
 gmail = "https://mail.google.com"
 
@@ -38,10 +39,13 @@ try:
                 response = request.getresponse()
                 json_data = (response.read())
                 say =  json.loads(json_data)
+#                print(say)
+                
                 speech = say['result']['fulfillment']['speech']
                 search = speech.split(":")
                 if search[0] == "Google" or search[0] == "Google and Google":
-                    wb.open_new_tab(google_search+search[1])
+                    G_Search(search[1])
+#                    wb.open_new_tab(google_search+search[1])
                     print()
                 elif search[0] == "Wiki" :
                     try:
@@ -50,7 +54,10 @@ try:
                     except wiki.exceptions.DisambiguationError:
                         print(color(BOLD+"Try to google it because it is very confusing for me"+END,"red"))
                 elif search[0] == "Youtube":
-                    wb.open_new_tab(youtube_search+search[1])
+                    Y_Search(search[1])
+                    
+                    
+#                    wb.open_new_tab(youtube_search+search[1])
                     print("")
                 elif search[0] == "Drive":
                     wb.open_new_tab(google_drive)
