@@ -13,7 +13,7 @@ from youtube_search import Y_Search
 
 BOLD = "\033[1m"   #use to bold the text
 END = "\033[0m"    #use to close the bold text
-CLIENT_ACCESS_TOKEN = "2245d4ab7c99466e806c8986a18234c4"
+CLIENT_ACCESS_TOKEN = ""
 ai = apiai.ApiAI(CLIENT_ACCESS_TOKEN)
 
 #google_search = "https://www.google.com/search?q="
